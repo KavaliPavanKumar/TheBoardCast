@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - The BroadCast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>News Headlines</h1>
+    </header>
+    <div class="news-list">
+        {% for news in news_data %}
+        <div class="news-item">
+            <h2>{{ news.headlines }}</h2>
+            <p>{{ news.description }}</p>
+            <p><strong>Author:</strong> {{ news.author_name }} | <strong>Category:</strong> {{ news.category }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('add_news') }}" class="btn">Add News</a>
+</body>
+</html>
